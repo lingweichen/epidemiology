@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Measuring disease frequency | 疾病頻率的測量</title>
+<meta name="description" content="Prevalence, incidence proportion, incidence rate and person-time.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@600&display=swap">
+<link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script defer src="assets/vendor/katex/katex.min.js"></script>
+<script defer src="assets/vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="assets/js/site.js"></script>
+<script defer src="assets/js/tools.js"></script>
+</head>
+<body data-lang="both">
+<div class="layout">
+<nav data-nav></nav>
+<main>
+<article class="prose">
+<p class="module-kicker"><span class="bi"><span lang="en">Module 1</span><span lang="zh-Hant">第 1 單元</span></span></p>
+<h1><span class="bi"><span lang="en">Measuring disease frequency</span><span lang="zh-Hant">疾病頻率的測量</span></span></h1>
+
+<p class="lede" lang="en">Before we can ask whether an exposure causes disease, we need a precise way to say how common the disease is. Epidemiology uses three core measures, and each answers a different question.</p>
+<p class="lede" lang="zh-Hant">在探討曝露是否導致疾病之前，必須先精確描述疾病有多常見。流行病學有三種核心測量，各自回答不同的問題。</p>
+
+<section class="objectives">
+  <h2><span class="bi"><span lang="en">After this module you can</span><span lang="zh-Hant">學習目標</span></span></h2>
+  <ul lang="en">
+    <li>distinguish prevalence, incidence proportion (risk), and incidence rate;</li>
+    <li>calculate person-time from follow-up data;</li>
+    <li>explain how prevalence depends on both incidence and disease duration.</li>
+  </ul>
+  <ul lang="zh-Hant">
+    <li>區分盛行率、累積發生率（風險）與發生密度；</li>
+    <li>由追蹤資料計算人時；</li>
+    <li>說明盛行率如何同時取決於發生率與病程長短。</li>
+  </ul>
+</section>
+
+<h2><span class="bi"><span lang="en">Prevalence</span><span lang="zh-Hant">盛行率</span></span></h2>
+<p lang="en"><span class="term">Prevalence</span> is the proportion of a population that has the disease at a given time. It describes the burden of disease, which makes it useful for planning services, but it mixes up how often people get sick with how long they stay sick.</p>
+<p lang="zh-Hant"><span class="term">盛行率</span>是某一時間點族群中患有該疾病者所占的比例。它描述疾病負擔，有助於規劃醫療服務，但同時混合了「多常發病」與「病程多長」兩種訊息。</p>
+<div class="formula">
+$$\text{Prevalence} = \frac{\text{number of people with the disease at time } t}{\text{number of people in the population at time } t}$$
+<p lang="en">Point prevalence refers to a single moment; period prevalence counts anyone who had the disease at any time during an interval.</p>
+<p lang="zh-Hant">時點盛行率指單一時間點；期間盛行率則計入某段期間內任何時候患病的人。</p>
+</div>
+
+<h2><span class="bi"><span lang="en">Incidence proportion (risk)</span><span lang="zh-Hant">累積發生率（風險）</span></span></h2>
+<p lang="en">The <span class="term">incidence proportion</span>, also called cumulative incidence or risk, is the proportion of people initially free of disease who develop it over a specified period. It only makes sense with a stated time window: "a 5-year risk of 2%" is meaningful, "a risk of 2%" is not.</p>
+<p lang="zh-Hant"><span class="term">累積發生率</span>又稱風險，是起始時無病者在特定期間內發病的比例。必須註明時間長度才有意義：「5 年風險為 2%」有意義，單說「風險為 2%」則不完整。</p>
+<div class="formula">
+$$R = \frac{\text{new cases during the period}}{\text{people at risk at the start of the period}}$$
+<p lang="en">This requires a closed population followed completely. When people enter late, leave early, or are lost to follow-up, the denominator is no longer well defined.</p>
+<p lang="zh-Hant">此計算需要封閉族群且完整追蹤。若有人中途加入、提早離開或失去追蹤，分母便無法明確定義。</p>
+</div>
+
+<h2><span class="bi"><span lang="en">Incidence rate and person-time</span><span lang="zh-Hant">發生密度與人時</span></span></h2>
+<p lang="en">The <span class="term">incidence rate</span> (incidence density) handles unequal follow-up by putting <span class="term">person-time</span> in the denominator: the total time each person was observed while at risk. Its unit is cases per person-time, such as 12 per 100 person-years.</p>
+<p lang="zh-Hant"><span class="term">發生密度</span>（發生率）以<span class="term">人時</span>作為分母，處理追蹤時間不等的問題：人時是每個人在具發病風險期間被觀察的時間總和。單位為「每人時的病例數」，例如每 100 人年 12 例。</p>
+<div class="formula">
+$$I = \frac{\text{new cases}}{\text{total person-time at risk}}$$
+</div>
+
+<figure>
+  <div class="figure-box">
+  <svg viewBox="0 0 640 290" role="img" aria-labelledby="pt-title" style="min-width:520px">
+    <title id="pt-title">Follow-up of five participants over five years</title>
+    <g class="fig-soft">
+      <text x="110" y="255">0</text><text x="206" y="255">1</text><text x="302" y="255">2</text>
+      <text x="398" y="255">3</text><text x="494" y="255">4</text><text x="590" y="255">5</text>
+      <text x="520" y="22" lang="en">person-years</text>
+      <text x="540" y="22" lang="zh-Hant">人年</text>
+      <text x="354" y="280" text-anchor="middle" lang="en">year of follow-up</text>
+      <text x="354" y="280" text-anchor="middle" lang="zh-Hant" dx="0" dy="0">追蹤年</text>
+    </g>
+    <line x1="114" y1="235" x2="594" y2="235" class="fig-ink" stroke-width="1"/>
+    <g class="fig-ink" stroke-width="1" stroke-dasharray="2 4" opacity="0.5">
+      <line x1="114" y1="30" x2="114" y2="235"/><line x1="594" y1="30" x2="594" y2="235"/>
+    </g>
+    <!-- rows: x = 114 + 96*year -->
+    <g stroke-width="5" stroke-linecap="round">
+      <line x1="114" y1="50"  x2="594" y2="50"  stroke="var(--teal)"/>
+      <line x1="114" y1="90"  x2="306" y2="90"  stroke="var(--teal)"/>
+      <line x1="210" y1="130" x2="498" y2="130" stroke="var(--teal)"/>
+      <line x1="114" y1="170" x2="450" y2="170" stroke="var(--teal)"/>
+      <line x1="306" y1="210" x2="594" y2="210" stroke="var(--teal)"/>
+    </g>
+    <g fill="var(--crimson)"><circle cx="306" cy="90" r="8"/><circle cx="450" cy="170" r="8"/></g>
+    <g stroke="var(--ink-soft)" stroke-width="2.5"><line x1="491" y1="123" x2="505" y2="137"/><line x1="505" y1="123" x2="491" y2="137"/></g>
+    <g class="fig-text">
+      <text x="20" y="55">A</text><text x="20" y="95">B</text><text x="20" y="135">C</text><text x="20" y="175">D</text><text x="20" y="215">E</text>
+      <text x="610" y="55">5.0</text><text x="610" y="95">2.0</text><text x="610" y="135">3.0</text><text x="610" y="175">3.5</text><text x="610" y="215">3.0</text>
+    </g>
+  </svg>
+  </div>
+  <figcaption lang="en">Five people followed for up to five years. Red dots are new cases (B and D); the cross marks C lost to follow-up; E joined in year 2. Total person-time is 16.5 person-years, so the incidence rate is 2 / 16.5 = 12.1 per 100 person-years.</figcaption>
+  <figcaption lang="zh-Hant">五人最多追蹤五年。紅點為新發病例（B 與 D）；叉號表示 C 失去追蹤；E 於第 2 年加入。總人時為 16.5 人年，故發生密度為 2 / 16.5 = 每 100 人年 12.1 例。</figcaption>
+</figure>
+
+<div class="callout">
+  <p class="callout-title"><span class="bi"><span lang="en">Common mistake</span><span lang="zh-Hant">常見錯誤</span></span></p>
+  <p lang="en">After a person becomes a case, they stop contributing person-time for a first-occurrence outcome: they are no longer at risk of getting the disease for the first time. B contributes 2 years, not 5.</p>
+  <p lang="zh-Hant">對「首次發生」的結果而言，個案發病後即不再貢獻人時，因為已不再具首次發病的風險。B 貢獻 2 年，而非 5 年。</p>
+</div>
+
+<h2><span class="bi"><span lang="en">How prevalence, incidence, and duration connect</span><span lang="zh-Hant">盛行率、發生率與病程的關係</span></span></h2>
+<p lang="en">In a population in steady state, where incidence and duration are stable and there is no net migration, prevalence odds equal the incidence rate multiplied by the average duration of disease. When prevalence is low, prevalence itself is close to this product.</p>
+<p lang="zh-Hant">在穩定狀態的族群中（發生率與病程穩定、無淨遷移），盛行勝算等於發生密度乘以平均病程。盛行率低時，盛行率本身約等於此乘積。</p>
+<div class="formula">
+$$\frac{P}{1-P} = I \times \bar{D} \qquad\Rightarrow\qquad P \approx I \times \bar{D} \ \text{ when } P \text{ is small}$$
+</div>
+<p lang="en">This is why a cross-sectional study of a chronic disease over-represents people who survive longer with it, and why a treatment that prolongs survival without curing can <em>raise</em> prevalence.</p>
+<p lang="zh-Hant">因此，慢性病的橫斷面研究會過度代表存活較久的病人；而能延長存活卻無法治癒的治療反而會<em>提高</em>盛行率。</p>
+
+<h2><span class="bi"><span lang="en">Check your understanding</span><span lang="zh-Hant">自我檢測</span></span></h2>
+
+<details class="check">
+  <summary><span class="bi"><span lang="en">Q1. A district has 20,000 adults. On 1 January, 400 have diabetes. Over the year, 150 new cases are diagnosed and nobody is lost to follow-up. Calculate the prevalence on 1 January and the one-year risk.</span><span lang="zh-Hant">Q1. 某區有 20,000 名成人，1 月 1 日有 400 人罹患糖尿病。一年內新診斷 150 例，且無人失去追蹤。請計算 1 月 1 日的盛行率與一年風險。</span></span></summary>
+  <div class="answer">
+    <p lang="en">Prevalence = 400 / 20,000 = 2.0%. The risk denominator is only those at risk at the start: 20,000 − 400 = 19,600. One-year risk = 150 / 19,600 = 0.77%.</p>
+    <p lang="zh-Hant">盛行率 = 400 / 20,000 = 2.0%。風險的分母僅含起始時具風險者：20,000 − 400 = 19,600。一年風險 = 150 / 19,600 = 0.77%。</p>
+  </div>
+</details>
+
+<details class="check">
+  <summary><span class="bi"><span lang="en">Q2. Why is the incidence rate, rather than the risk, the natural measure in a dynamic population such as a city?</span><span lang="zh-Hant">Q2. 在城市這類動態族群中，為何發生密度比風險更合適？</span></span></summary>
+  <div class="answer">
+    <p lang="en">People move in and out continuously, so there is no fixed group at risk at the start. Person-time counts exactly how much observation each person contributed while they were in the population and at risk.</p>
+    <p lang="zh-Hant">人口持續移入移出，不存在固定的起始風險族群。人時能精確計算每個人在族群中且具風險期間所貢獻的觀察時間。</p>
+  </div>
+</details>
+
+<details class="check">
+  <summary><span class="bi"><span lang="en">Q3. Influenza has a high incidence in winter but a low point prevalence. Explain why.</span><span lang="zh-Hant">Q3. 流感在冬季發生率高，但時點盛行率低，原因為何？</span></span></summary>
+  <div class="answer">
+    <p lang="en">The average duration is about a week. Because \(P \approx I \times \bar{D}\), a short duration keeps prevalence low even when many new cases occur.</p>
+    <p lang="zh-Hant">平均病程約一週。由於 \(P \approx I \times \bar{D}\)，即使新病例多，病程短仍使盛行率維持在低水準。</p>
+  </div>
+</details>
+</article>
+</main>
+</div>
+</body>
+</html>

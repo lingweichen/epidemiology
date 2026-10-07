@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bias | 偏差</title>
+<meta name="description" content="Random versus systematic error, selection bias, and information bias, with a misclassification simulator.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@600&display=swap">
+<link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script defer src="assets/vendor/katex/katex.min.js"></script>
+<script defer src="assets/vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="assets/js/site.js"></script>
+<script defer src="assets/js/tools.js"></script>
+</head>
+<body data-lang="both">
+<div class="layout">
+<nav data-nav></nav>
+<main>
+<article class="prose">
+<p class="module-kicker"><span class="bi"><span lang="en">Module 4</span><span lang="zh-Hant">第 4 單元</span></span></p>
+<h1><span class="bi"><span lang="en">Bias</span><span lang="zh-Hant">偏差</span></span></h1>
+
+<p class="lede" lang="en">A larger sample shrinks random error. It does nothing for systematic error. Bias is any systematic deviation of an estimate from the truth, and it comes from how participants were selected or how information about them was obtained.</p>
+<p class="lede" lang="zh-Hant">增加樣本數能縮小隨機誤差，但對系統性誤差毫無幫助。偏差是估計值與真值之間的系統性差異，來自參與者的選取方式或資訊的取得方式。</p>
+
+<section class="objectives">
+  <h2><span class="bi"><span lang="en">After this module you can</span><span lang="zh-Hant">學習目標</span></span></h2>
+  <ul lang="en">
+    <li>distinguish random error from systematic error, and internal from external validity;</li>
+    <li>recognize selection bias in case-control and cohort studies;</li>
+    <li>predict the direction of bias from non-differential and differential misclassification.</li>
+  </ul>
+  <ul lang="zh-Hant">
+    <li>區分隨機誤差與系統性誤差，以及內在效度與外在效度；</li>
+    <li>辨識病例對照與世代研究中的選樣偏差；</li>
+    <li>預測非差異性與差異性錯誤分類造成的偏差方向。</li>
+  </ul>
+</section>
+
+<h2><span class="bi"><span lang="en">Validity</span><span lang="zh-Hant">效度</span></span></h2>
+<p lang="en"><span class="term">Internal validity</span> asks whether the estimate is correct for the people studied. <span class="term">External validity</span> (generalizability) asks whether it applies to other populations. Internal validity comes first: an invalid estimate cannot be generalized.</p>
+<p lang="zh-Hant"><span class="term">內在效度</span>指估計值對研究對象是否正確；<span class="term">外在效度</span>（概化性）指能否推論到其他族群。內在效度優先：無效的估計值無從推論。</p>
+<p lang="en">The three main threats to internal validity are selection bias, information bias, and confounding. Confounding has its own module.</p>
+<p lang="zh-Hant">內在效度的三大威脅為選樣偏差、資訊偏差與干擾。干擾另於第 5 單元說明。</p>
+
+<h2><span class="bi"><span lang="en">Selection bias</span><span lang="zh-Hant">選樣偏差</span></span></h2>
+<p lang="en">Selection bias arises when the probability of being included in the analysis depends on both exposure and outcome. Common forms:</p>
+<p lang="zh-Hant">當進入分析的機率同時與曝露及結果有關時，便產生選樣偏差。常見形式：</p>
+<ul lang="en">
+  <li><strong>Control selection.</strong> Hospital controls admitted for conditions related to the exposure distort the comparison. Smoking is over-represented among patients admitted for respiratory disease.</li>
+  <li><strong>Differential loss to follow-up.</strong> In a cohort, if exposed participants who develop the outcome drop out more often, the observed risk in the exposed is too low.</li>
+  <li><strong>Healthy worker effect.</strong> Employed people are healthier than the general population, so occupational cohorts compared with national rates look protected.</li>
+  <li><strong>Self-selection.</strong> Volunteers differ from non-volunteers in health and behaviour.</li>
+</ul>
+<ul lang="zh-Hant">
+  <li><strong>對照選擇。</strong>若醫院對照因與曝露相關的疾病住院，比較便會失真。例如呼吸道疾病住院病人中吸菸者比例偏高。</li>
+  <li><strong>差異性失去追蹤。</strong>世代研究中，若發生結果的曝露者較常退出，曝露組觀察風險會偏低。</li>
+  <li><strong>健康工人效應。</strong>就業者較一般族群健康，職業世代與全國率比較時會顯得具保護作用。</li>
+  <li><strong>自我選擇。</strong>自願參與者在健康與行為上與非參與者不同。</li>
+</ul>
+
+<h2><span class="bi"><span lang="en">Information bias</span><span lang="zh-Hant">資訊偏差</span></span></h2>
+<p lang="en">Information bias comes from errors in measuring exposure, outcome, or covariates. For categorical variables these errors are called <span class="term">misclassification</span>, and the key question is whether the error is the same across the groups being compared.</p>
+<p lang="zh-Hant">資訊偏差來自曝露、結果或共變項的測量錯誤。類別變項的測量錯誤稱為<span class="term">錯誤分類</span>，關鍵在於比較組間錯誤是否相同。</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th></th><th><span class="bi"><span lang="en">Definition</span><span lang="zh-Hant">定義</span></span></th><th><span class="bi"><span lang="en">Usual direction</span><span lang="zh-Hant">通常方向</span></span></th></tr></thead>
+  <tbody>
+    <tr><td><strong><span class="bi"><span lang="en">Non-differential</span><span lang="zh-Hant">非差異性</span></span></strong></td>
+      <td><span class="bi"><span lang="en">Exposure is misclassified equally in cases and non-cases</span><span lang="zh-Hant">曝露在病例與非病例中錯誤分類程度相同</span></span></td>
+      <td><span class="bi"><span lang="en">Toward the null, for a binary exposure</span><span lang="zh-Hant">二元曝露時趨向虛無值</span></span></td></tr>
+    <tr><td><strong><span class="bi"><span lang="en">Differential</span><span lang="zh-Hant">差異性</span></span></strong></td>
+      <td><span class="bi"><span lang="en">Accuracy differs between cases and non-cases</span><span lang="zh-Hant">病例與非病例的準確度不同</span></span></td>
+      <td><span class="bi"><span lang="en">Either direction</span><span lang="zh-Hant">任一方向</span></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p lang="en"><span class="term">Recall bias</span> is the classic differential error: mothers of infants with a birth defect search their memories harder for exposures during pregnancy than mothers of healthy infants.</p>
+<p lang="zh-Hant"><span class="term">回憶偏差</span>是典型的差異性錯誤：出生缺陷兒的母親比健康嬰兒的母親更努力回想孕期曝露。</p>
+
+<div class="callout">
+  <p class="callout-title"><span class="bi"><span lang="en">"Toward the null" has conditions</span><span lang="zh-Hant">「趨向虛無值」有前提</span></span></p>
+  <p lang="en">The rule holds on average for a binary exposure with errors independent of other errors. With three or more exposure categories, correlated errors, or in any single study by chance, non-differential misclassification can bias away from the null. A null result from a poorly measured exposure is not reassuring.</p>
+  <p lang="zh-Hant">此規則在二元曝露且錯誤彼此獨立時，平均而言成立。若曝露有三個以上類別、錯誤彼此相關，或在單一研究中因機遇，非差異性錯誤分類仍可能使估計遠離虛無值。測量不佳的曝露所得的無關聯結果，並不能令人放心。</p>
+</div>
+
+<h2><span class="bi"><span lang="en">Try it</span><span lang="zh-Hant">動手試試</span></span></h2>
+<p lang="en">Lower the sensitivity and watch the observed OR. Then untick "same accuracy" and give controls lower sensitivity than cases, as in recall bias.</p>
+<p lang="zh-Hant">降低敏感度並觀察 OR 的變化。接著取消「準確度相同」，讓對照組敏感度低於病例組，模擬回憶偏差。</p>
+</article>
+<div data-tool="misclass"></div>
+
+<article class="prose">
+<h2><span class="bi"><span lang="en">Reducing bias</span><span lang="zh-Hant">減少偏差</span></span></h2>
+<p lang="en">Bias is mostly prevented at the design stage: define the source population clearly, sample controls from it, minimize loss to follow-up, use validated and objective measurements, and blind interviewers and outcome assessors to exposure. When some bias is unavoidable, <span class="term">quantitative bias analysis</span> estimates how large it would need to be to explain the result.</p>
+<p lang="zh-Hant">偏差主要在設計階段預防：明確定義來源族群並從中抽取對照、減少失去追蹤、使用經驗證的客觀測量，並讓訪員與結果評估者不知曉曝露狀態。若偏差無法避免，可用<span class="term">量化偏差分析</span>評估偏差需多大才能解釋研究結果。</p>
+
+<h2><span class="bi"><span lang="en">Check your understanding</span><span lang="zh-Hant">自我檢測</span></span></h2>
+<details class="check">
+  <summary><span class="bi"><span lang="en">Q1. A cohort measures habitual diet with a food frequency questionnaire before any outcome occurs. Is misclassification of diet likely to be differential?</span><span lang="zh-Hant">Q1. 某世代於任何結果發生前以食物頻率問卷測量平時飲食。飲食的錯誤分類可能是差異性的嗎？</span></span></summary>
+  <div class="answer">
+    <p lang="en">Probably not. Because diet was recorded before outcomes, the error cannot depend on outcome status. The error is likely non-differential, which for a binary exposure tends to attenuate associations.</p>
+    <p lang="zh-Hant">可能性低。飲食在結果發生前記錄，錯誤不會受結果狀態影響，因此可能為非差異性，二元曝露時傾向減弱關聯。</p>
+  </div>
+</details>
+<details class="check">
+  <summary><span class="bi"><span lang="en">Q2. Why does a larger sample size not fix selection bias?</span><span lang="zh-Hant">Q2. 為何增加樣本數無法解決選樣偏差？</span></span></summary>
+  <div class="answer">
+    <p lang="en">A larger sample gives a more precise estimate of the same biased quantity. The confidence interval narrows around the wrong value.</p>
+    <p lang="zh-Hant">樣本數增加只會讓同一個有偏差的量估計得更精確，信賴區間在錯誤的數值周圍變窄。</p>
+  </div>
+</details>
+</article>
+</main>
+</div>
+</body>
+</html>

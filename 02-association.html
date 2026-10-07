@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Measures of association | 關聯性的測量</title>
+<meta name="description" content="Risk ratio, rate ratio, odds ratio, risk difference and attributable fractions, with an interactive 2x2 calculator.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@600&display=swap">
+<link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script defer src="assets/vendor/katex/katex.min.js"></script>
+<script defer src="assets/vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="assets/js/site.js"></script>
+<script defer src="assets/js/tools.js"></script>
+</head>
+<body data-lang="both">
+<div class="layout">
+<nav data-nav></nav>
+<main>
+<article class="prose">
+<p class="module-kicker"><span class="bi"><span lang="en">Module 2</span><span lang="zh-Hant">第 2 單元</span></span></p>
+<h1><span class="bi"><span lang="en">Measures of association</span><span lang="zh-Hant">關聯性的測量</span></span></h1>
+
+<p class="lede" lang="en">A measure of association compares disease frequency between groups. The choice between a ratio and a difference is not cosmetic: ratios describe the strength of an association, differences describe its public health impact.</p>
+<p class="lede" lang="zh-Hant">關聯性指標用來比較不同群體的疾病頻率。選擇比值或差值並非形式問題：比值描述關聯強度，差值描述公共衛生影響。</p>
+
+<section class="objectives">
+  <h2><span class="bi"><span lang="en">After this module you can</span><span lang="zh-Hant">學習目標</span></span></h2>
+  <ul lang="en">
+    <li>calculate and interpret the risk ratio, odds ratio, and risk difference from a 2×2 table;</li>
+    <li>explain when the odds ratio approximates the risk ratio;</li>
+    <li>calculate attributable fractions and state the assumptions behind them.</li>
+  </ul>
+  <ul lang="zh-Hant">
+    <li>由 2×2 表計算並解釋相對危險性、勝算比與風險差；</li>
+    <li>說明勝算比何時近似相對危險性；</li>
+    <li>計算可歸因分率並說明其背後假設。</li>
+  </ul>
+</section>
+
+<h2><span class="bi"><span lang="en">The 2×2 table</span><span lang="zh-Hant">2×2 表</span></span></h2>
+<p lang="en">Throughout this course, rows are exposure and columns are outcome. Check the layout in any textbook or paper you read, because some reverse it.</p>
+<p lang="zh-Hant">本課程一律以列表示曝露、欄表示結果。閱讀其他教科書或文獻時請留意，部分作者採相反排列。</p>
+<div class="table-wrap">
+<table class="twobytwo">
+  <thead><tr><th></th><th><span class="bi"><span lang="en">Cases (D+)</span><span lang="zh-Hant">病例 (D+)</span></span></th><th><span class="bi"><span lang="en">Non-cases (D−)</span><span lang="zh-Hant">非病例 (D−)</span></span></th><th><span class="bi"><span lang="en">Total</span><span lang="zh-Hant">合計</span></span></th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="bi"><span lang="en">Exposed (E+)</span><span lang="zh-Hant">曝露 (E+)</span></span></th><td class="cell case">a</td><td class="cell">b</td><td class="total">a + b</td></tr>
+    <tr><th scope="row"><span class="bi"><span lang="en">Unexposed (E−)</span><span lang="zh-Hant">未曝露 (E−)</span></span></th><td class="cell case">c</td><td class="cell">d</td><td class="total">c + d</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3><span class="bi"><span lang="en">Worked example</span><span lang="zh-Hant">計算範例</span></span></h3>
+<p lang="en">A hypothetical cohort follows 1,000 pregnant women: 300 with pre-pregnancy obesity (exposed) and 700 without. Gestational diabetes (GDM) develops in 45 exposed and 49 unexposed women. So a = 45, b = 255, c = 49, d = 651.</p>
+<p lang="zh-Hant">假設一世代追蹤 1,000 名孕婦：300 名孕前肥胖（曝露組），700 名非肥胖。曝露組有 45 人、未曝露組有 49 人發生妊娠糖尿病（GDM）。因此 a = 45、b = 255、c = 49、d = 651。</p>
+
+<h2><span class="bi"><span lang="en">Ratio measures</span><span lang="zh-Hant">比值指標</span></span></h2>
+<div class="formula">
+$$\text{RR} = \frac{a/(a+b)}{c/(c+d)} = \frac{45/300}{49/700} = \frac{0.15}{0.07} = 2.14$$
+<p lang="en">The <span class="term">risk ratio</span>: women with obesity had 2.14 times the risk of GDM over pregnancy.</p>
+<p lang="zh-Hant"><span class="term">相對危險性</span>：肥胖孕婦在孕期發生 GDM 的風險是非肥胖孕婦的 2.14 倍。</p>
+</div>
+<div class="formula">
+$$\text{OR} = \frac{a/b}{c/d} = \frac{ad}{bc} = \frac{45 \times 651}{255 \times 49} = 2.34$$
+<p lang="en">The <span class="term">odds ratio</span> compares odds instead of risks. It is the only ratio measure a case-control study can estimate directly (module 3).</p>
+<p lang="zh-Hant"><span class="term">勝算比</span>比較的是勝算而非風險，是病例對照研究唯一能直接估計的比值指標（見第 3 單元）。</p>
+</div>
+<p lang="en">With person-time data, the <span class="term">rate ratio</span> is the incidence rate in the exposed divided by the rate in the unexposed. All three ratios equal 1 when there is no association.</p>
+<p lang="zh-Hant">若為人時資料，<span class="term">發生密度比</span>為曝露組發生密度除以未曝露組發生密度。無關聯時，三種比值皆等於 1。</p>
+
+<h2><span class="bi"><span lang="en">Difference measures</span><span lang="zh-Hant">差值指標</span></span></h2>
+<div class="formula">
+$$\text{RD} = \frac{a}{a+b} - \frac{c}{c+d} = 0.15 - 0.07 = 0.08$$
+<p lang="en">The <span class="term">risk difference</span>: 8 extra cases of GDM per 100 women with obesity, if the association is causal. Its null value is 0.</p>
+<p lang="zh-Hant"><span class="term">風險差</span>：若關聯具因果性，每 100 名肥胖孕婦多出 8 例 GDM。虛無值為 0。</p>
+</div>
+
+<div class="callout key">
+  <p class="callout-title"><span class="bi"><span lang="en">Why report both</span><span lang="zh-Hant">為何兩者都要報告</span></span></p>
+  <p lang="en">A risk ratio of 2 can mean 2 vs 1 per 100,000 or 40 vs 20 per 100. The relative strength is identical; the number of people affected differs by a factor of 20,000. CONSORT and STROBE both recommend reporting absolute alongside relative measures.</p>
+  <p lang="zh-Hant">相對危險性為 2，可能是每 10 萬人 2 對 1，也可能是每 100 人 40 對 20。相對強度相同，受影響人數卻相差 2 萬倍。CONSORT 與 STROBE 皆建議同時報告絕對與相對指標。</p>
+</div>
+
+<h2><span class="bi"><span lang="en">When does the OR approximate the RR?</span><span lang="zh-Hant">勝算比何時近似相對危險性？</span></span></h2>
+<p lang="en">The two are linked exactly by the risks in each group:</p>
+<p lang="zh-Hant">兩者的關係可由各組風險精確表示：</p>
+<div class="formula">
+$$\text{OR} = \text{RR} \times \frac{1 - R_0}{1 - R_1}$$
+</div>
+<p lang="en">When the outcome is rare (risks under roughly 10%), both fractions are close to 1 and OR ≈ RR. When the outcome is common, the OR is always further from 1 than the RR. Reporting an OR of 3.9 as "nearly four times the risk" when the RR is 3.0 is a frequent error in the literature.</p>
+<p lang="zh-Hant">結果罕見時（風險約低於 10%），分數接近 1，OR ≈ RR。結果常見時，OR 一定比 RR 更遠離 1。文獻中常見的錯誤是：RR 為 3.0 時，將 OR 3.9 寫成「風險約為四倍」。</p>
+
+<h2><span class="bi"><span lang="en">Attributable fractions</span><span lang="zh-Hant">可歸因分率</span></span></h2>
+<p lang="en">The <span class="term">attributable fraction among the exposed</span> is the proportion of cases in exposed people that would not have occurred without the exposure. The <span class="term">population attributable fraction</span> (PAF) is the proportion of all cases in the population that would be prevented by removing the exposure.</p>
+<p lang="zh-Hant"><span class="term">曝露組可歸因分率</span>是曝露者病例中，若無曝露即不會發生的比例。<span class="term">族群可歸因分率</span>（PAF）是若移除曝露，族群全部病例中可預防的比例。</p>
+<div class="formula">
+$$\text{AF}_e = \frac{\text{RR} - 1}{\text{RR}} \qquad \text{PAF} = \frac{p_e(\text{RR}-1)}{1 + p_e(\text{RR}-1)} = p_c \cdot \frac{\text{RR}-1}{\text{RR}}$$
+<p lang="en">\(p_e\) is the proportion of the population exposed (Levin's formula); \(p_c\) is the proportion of cases exposed (Miettinen's formula). Use Miettinen's version when the RR is adjusted for confounders.</p>
+<p lang="zh-Hant">\(p_e\) 為族群曝露比例（Levin 公式）；\(p_c\) 為病例中曝露比例（Miettinen 公式）。若 RR 經干擾因子調整，應使用 Miettinen 公式。</p>
+</div>
+<div class="callout">
+  <p class="callout-title"><span class="bi"><span lang="en">Assumptions</span><span lang="zh-Hant">前提假設</span></span></p>
+  <p lang="en">Attributable fractions treat the association as causal and unconfounded, and assume removing the exposure is possible without changing anything else. Fractions for different risk factors of the same disease can add up to more than 100%.</p>
+  <p lang="zh-Hant">可歸因分率假設關聯為因果且無干擾，並假設移除曝露時不改變其他因素。同一疾病不同危險因子的可歸因分率加總可能超過 100%。</p>
+</div>
+
+<h2><span class="bi"><span lang="en">Try it</span><span lang="zh-Hant">動手試試</span></span></h2>
+<p lang="en">Enter the worked example (45, 255, 49, 651), then switch to "case-control" to see which measures disappear and why.</p>
+<p lang="zh-Hant">輸入上述範例（45、255、49、651），再切換到「病例對照研究」，觀察哪些指標消失及其原因。</p>
+</article>
+<div data-tool="assoc"></div>
+
+<article class="prose">
+<h2><span class="bi"><span lang="en">Check your understanding</span><span lang="zh-Hant">自我檢測</span></span></h2>
+<details class="check">
+  <summary><span class="bi"><span lang="en">Q1. In the worked example, 30% of women are exposed. Calculate the PAF with Levin's formula.</span><span lang="zh-Hant">Q1. 範例中 30% 的孕婦為曝露者，請以 Levin 公式計算 PAF。</span></span></summary>
+  <div class="answer">
+    <p lang="en">PAF = 0.30 × 1.14 / (1 + 0.30 × 1.14) = 0.343 / 1.343 = 25.5%. Check: overall risk = 94/1000 = 9.4%, and (9.4 − 7.0)/9.4 = 25.5%.</p>
+    <p lang="zh-Hant">PAF = 0.30 × 1.14 / (1 + 0.30 × 1.14) = 0.343 / 1.343 = 25.5%。驗算：總風險 = 94/1000 = 9.4%，(9.4 − 7.0)/9.4 = 25.5%。</p>
+  </div>
+</details>
+<details class="check">
+  <summary><span class="bi"><span lang="en">Q2. Exposure A has RR = 4 and 2% of people are exposed. Exposure B has RR = 1.5 and 40% are exposed. Which matters more for population prevention?</span><span lang="zh-Hant">Q2. 曝露 A 的 RR = 4，曝露比例 2%；曝露 B 的 RR = 1.5，曝露比例 40%。何者對族群預防較重要？</span></span></summary>
+  <div class="answer">
+    <p lang="en">PAF for A = 0.02 × 3 / 1.06 = 5.7%. PAF for B = 0.40 × 0.5 / 1.20 = 16.7%. The weaker but more common exposure accounts for nearly three times as many cases.</p>
+    <p lang="zh-Hant">A 的 PAF = 0.02 × 3 / 1.06 = 5.7%；B 的 PAF = 0.40 × 0.5 / 1.20 = 16.7%。關聯較弱但較普遍的曝露，可歸因病例數約為前者三倍。</p>
+  </div>
+</details>
+</article>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study designs | 研究設計</title>
+<meta name="description" content="Randomized trials, cohort, case-control, cross-sectional and ecological studies compared.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@600&display=swap">
+<link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script defer src="assets/vendor/katex/katex.min.js"></script>
+<script defer src="assets/vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="assets/js/site.js"></script>
+<script defer src="assets/js/tools.js"></script>
+</head>
+<body data-lang="both">
+<div class="layout">
+<nav data-nav></nav>
+<main>
+<article class="prose">
+<p class="module-kicker"><span class="bi"><span lang="en">Module 3</span><span lang="zh-Hant">第 3 單元</span></span></p>
+<h1><span class="bi"><span lang="en">Study designs</span><span lang="zh-Hant">研究設計</span></span></h1>
+
+<p class="lede" lang="en">Every design is a strategy for comparing the experience of exposed and unexposed people. They differ in who is sampled, when, and therefore in which measures they can estimate.</p>
+<p class="lede" lang="zh-Hant">各種研究設計都是比較曝露與未曝露者經驗的策略，差別在於抽樣對象、抽樣時間，以及因此能估計的指標。</p>
+
+<section class="objectives">
+  <h2><span class="bi"><span lang="en">After this module you can</span><span lang="zh-Hant">學習目標</span></span></h2>
+  <ul lang="en">
+    <li>describe the sampling logic of trials, cohort, case-control, and cross-sectional studies;</li>
+    <li>explain what the odds ratio estimates under different control-sampling schemes;</li>
+    <li>choose a design given the research question, outcome frequency, and resources.</li>
+  </ul>
+  <ul lang="zh-Hant">
+    <li>描述臨床試驗、世代、病例對照與橫斷面研究的抽樣邏輯；</li>
+    <li>說明不同對照抽樣方式下勝算比所估計的指標；</li>
+    <li>依研究問題、結果頻率與資源選擇適當設計。</li>
+  </ul>
+</section>
+
+<h2><span class="bi"><span lang="en">Randomized controlled trials</span><span lang="zh-Hant">隨機對照試驗</span></span></h2>
+<p lang="en">The investigator assigns exposure by chance. Randomization makes the groups exchangeable in expectation, balancing both measured and unmeasured prognostic factors, which is why a well-conducted trial gives the most direct estimate of a causal effect. Analysis by <span class="term">intention to treat</span> preserves that balance.</p>
+<p lang="zh-Hant">研究者以隨機方式分派曝露。隨機分派使各組在期望值上具可交換性，同時平衡已測量與未測量的預後因子，因此執行良好的試驗能最直接地估計因果效應。<span class="term">意向治療分析</span>可保留此平衡。</p>
+<p lang="en">Trials are often impossible or unethical: we cannot randomize pregnant women to smoke, and rare or long-latency outcomes need impractically large or long trials.</p>
+<p lang="zh-Hant">試驗常不可行或不合倫理：無法隨機分派孕婦吸菸；罕見或潛伏期長的結果則需要規模過大或時間過長的試驗。</p>
+
+<h2><span class="bi"><span lang="en">Cohort studies</span><span lang="zh-Hant">世代研究</span></span></h2>
+<p lang="en">People are classified by exposure and followed for outcomes. Exposure precedes outcome by design, so temporality is clear, and risks, rates, and their ratios and differences can all be estimated. Several outcomes can be studied from one exposure.</p>
+<p lang="zh-Hant">依曝露狀態分組並追蹤結果。設計上曝露先於結果，時序明確，可估計風險、發生密度及其比值與差值。同一曝露可研究多種結果。</p>
+<p lang="en">A <span class="term">prospective</span> cohort collects data going forward; a <span class="term">retrospective</span> (historical) cohort uses records already collected, such as Taiwan's National Health Insurance claims. Both are cohorts, because both follow people from exposure to outcome.</p>
+<p lang="zh-Hant"><span class="term">前瞻性</span>世代向後收集資料；<span class="term">回溯性</span>（歷史性）世代使用既有紀錄，例如臺灣全民健康保險申報資料。兩者都是世代研究，因為都從曝露追蹤至結果。</p>
+
+<h2><span class="bi"><span lang="en">Case-control studies</span><span lang="zh-Hant">病例對照研究</span></span></h2>
+<p lang="en">Instead of following everyone, the investigator samples cases and a set of controls, then compares their exposure. Think of it as an efficient way to sample the cohort that gave rise to the cases (the <span class="term">source population</span> or study base). Controls should represent the exposure distribution of that source population, not simply be "people without the disease".</p>
+<p lang="zh-Hant">研究者不追蹤所有人，而是抽取病例與一組對照，再比較其曝露。可將其視為對產生病例之世代（<span class="term">來源族群</span>或研究基礎）的有效率抽樣。對照應反映來源族群的曝露分布，而不僅是「沒有該病的人」。</p>
+
+<h3><span class="bi"><span lang="en">What does the odds ratio estimate?</span><span lang="zh-Hant">勝算比估計的是什麼？</span></span></h3>
+<div class="table-wrap">
+<table>
+  <thead><tr>
+    <th><span class="bi"><span lang="en">How controls are sampled</span><span lang="zh-Hant">對照抽樣方式</span></span></th>
+    <th><span class="bi"><span lang="en">The OR estimates</span><span lang="zh-Hant">OR 估計</span></span></th>
+    <th><span class="bi"><span lang="en">Rare-disease assumption needed?</span><span lang="zh-Hant">需罕見疾病假設？</span></span></th>
+  </tr></thead>
+  <tbody>
+    <tr><td><span class="bi"><span lang="en">From the whole cohort at baseline (case-cohort)</span><span lang="zh-Hant">自基線全世代抽樣（病例世代）</span></span></td><td><span class="bi"><span lang="en">Risk ratio</span><span lang="zh-Hant">相對危險性</span></span></td><td><span class="bi"><span lang="en">No</span><span lang="zh-Hant">否</span></span></td></tr>
+    <tr><td><span class="bi"><span lang="en">From people still at risk when each case occurs (density / risk-set sampling)</span><span lang="zh-Hant">於每位病例發生時自仍具風險者抽樣（密度抽樣）</span></span></td><td><span class="bi"><span lang="en">Rate ratio</span><span lang="zh-Hant">發生密度比</span></span></td><td><span class="bi"><span lang="en">No</span><span lang="zh-Hant">否</span></span></td></tr>
+    <tr><td><span class="bi"><span lang="en">From non-cases at the end of follow-up (cumulative sampling)</span><span lang="zh-Hant">於追蹤結束時自非病例抽樣（累積抽樣）</span></span></td><td><span class="bi"><span lang="en">Odds ratio of risks</span><span lang="zh-Hant">風險勝算比</span></span></td><td><span class="bi"><span lang="en">Yes, to approximate the RR</span><span lang="zh-Hant">是，才能近似 RR</span></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p lang="en">A <span class="term">nested case-control</span> study draws cases and density-sampled controls from inside an existing cohort, often to measure an expensive biomarker in stored samples only for a subset.</p>
+<p lang="zh-Hant"><span class="term">巢式病例對照研究</span>自既有世代中選取病例與密度抽樣的對照，常用於僅對部分人檢測儲存檢體中的昂貴生物標記。</p>
+
+<h2><span class="bi"><span lang="en">Cross-sectional studies</span><span lang="zh-Hant">橫斷面研究</span></span></h2>
+<p lang="en">Exposure and outcome are measured at the same time, giving prevalence and the prevalence ratio or prevalence odds ratio. Two problems limit causal interpretation: it is often unclear which came first, and prevalent cases over-represent people with long disease duration (module 1).</p>
+<p lang="zh-Hant">同時測量曝露與結果，可得盛行率及盛行率比或盛行勝算比。兩個問題限制因果推論：常無法確定何者在先；盛行病例過度代表病程長者（見第 1 單元）。</p>
+
+<h2><span class="bi"><span lang="en">Ecological studies</span><span lang="zh-Hant">生態研究</span></span></h2>
+<p lang="en">The unit of analysis is a group, such as a county or country. They are cheap and good for generating hypotheses, but associations at the group level need not hold for individuals: the <span class="term">ecological fallacy</span>.</p>
+<p lang="zh-Hant">分析單位為群體，如縣市或國家。成本低、適合產生假說，但群體層次的關聯未必適用於個人，此即<span class="term">生態謬誤</span>。</p>
+
+<h2><span class="bi"><span lang="en">Choosing a design</span><span lang="zh-Hant">選擇研究設計</span></span></h2>
+</article>
+<div class="table-wrap" style="max-width:60rem">
+<table>
+  <thead><tr>
+    <th><span class="bi"><span lang="en">Design</span><span lang="zh-Hant">設計</span></span></th>
+    <th><span class="bi"><span lang="en">Strengths</span><span lang="zh-Hant">優點</span></span></th>
+    <th><span class="bi"><span lang="en">Limitations</span><span lang="zh-Hant">限制</span></span></th>
+  </tr></thead>
+  <tbody>
+    <tr><td><span class="bi"><span lang="en">Trial</span><span lang="zh-Hant">試驗</span></span></td>
+      <td><span class="bi"><span lang="en">Controls unmeasured confounding</span><span lang="zh-Hant">可控制未測量干擾</span></span></td>
+      <td><span class="bi"><span lang="en">Cost, ethics, selected participants</span><span lang="zh-Hant">成本、倫理、參與者經篩選</span></span></td></tr>
+    <tr><td><span class="bi"><span lang="en">Cohort</span><span lang="zh-Hant">世代</span></span></td>
+      <td><span class="bi"><span lang="en">Clear temporality; many outcomes; rare exposures</span><span lang="zh-Hant">時序明確；多種結果；適合罕見曝露</span></span></td>
+      <td><span class="bi"><span lang="en">Large and slow for rare outcomes; loss to follow-up</span><span lang="zh-Hant">罕見結果需大樣本與長時間；失去追蹤</span></span></td></tr>
+    <tr><td><span class="bi"><span lang="en">Case-control</span><span lang="zh-Hant">病例對照</span></span></td>
+      <td><span class="bi"><span lang="en">Efficient for rare outcomes; many exposures</span><span lang="zh-Hant">適合罕見結果；可研究多種曝露</span></span></td>
+      <td><span class="bi"><span lang="en">Control selection; recall bias</span><span lang="zh-Hant">對照選擇；回憶偏差</span></span></td></tr>
+    <tr><td><span class="bi"><span lang="en">Cross-sectional</span><span lang="zh-Hant">橫斷面</span></span></td>
+      <td><span class="bi"><span lang="en">Fast; describes burden</span><span lang="zh-Hant">快速；描述疾病負擔</span></span></td>
+      <td><span class="bi"><span lang="en">Temporality unclear; prevalent cases</span><span lang="zh-Hant">時序不明；盛行病例</span></span></td></tr>
+    <tr><td><span class="bi"><span lang="en">Ecological</span><span lang="zh-Hant">生態</span></span></td>
+      <td><span class="bi"><span lang="en">Cheap; group-level exposures such as policy</span><span lang="zh-Hant">成本低；適合政策等群體層次曝露</span></span></td>
+      <td><span class="bi"><span lang="en">Ecological fallacy</span><span lang="zh-Hant">生態謬誤</span></span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<article class="prose">
+<h2><span class="bi"><span lang="en">Check your understanding</span><span lang="zh-Hant">自我檢測</span></span></h2>
+<details class="check">
+  <summary><span class="bi"><span lang="en">Q1. You want to study whether a common prenatal supplement is associated with a rare congenital anomaly (about 1 per 2,000 births). Which design, and what is its main threat?</span><span lang="zh-Hant">Q1. 欲研究常見孕期補充劑與罕見先天異常（約每 2,000 名新生兒 1 例）的關聯，應採何種設計？主要威脅為何？</span></span></summary>
+  <div class="answer">
+    <p lang="en">A case-control study, because a cohort would need tens of thousands of births to observe enough cases. The main threat is recall bias: mothers of affected infants may report supplement use more thoroughly. Using prospectively recorded prescription or pharmacy data avoids this.</p>
+    <p lang="zh-Hant">病例對照研究，因為世代研究需數萬名新生兒才能觀察到足夠病例。主要威脅是回憶偏差：異常兒的母親可能更完整地回報補充劑使用。採用前瞻記錄的處方或藥局資料可避免此問題。</p>
+  </div>
+</details>
+<details class="check">
+  <summary><span class="bi"><span lang="en">Q2. A study uses 2010 insurance records to identify exposure and follows patients to 2020 for outcomes. Is it a case-control study because the data are old?</span><span lang="zh-Hant">Q2. 某研究以 2010 年保險紀錄界定曝露，追蹤至 2020 年觀察結果。因資料是過去的，它算病例對照研究嗎？</span></span></summary>
+  <div class="answer">
+    <p lang="en">No. It is a retrospective cohort. A design is defined by how people are sampled (here, by exposure, then followed), not by when the data were collected.</p>
+    <p lang="zh-Hant">不是，它是回溯性世代研究。研究設計取決於抽樣方式（此處依曝露分組再追蹤），而非資料收集的時間。</p>
+  </div>
+</details>
+</article>
+</main>
+</div>
+</body>
+</html>

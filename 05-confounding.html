@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Causation and confounding | 因果與干擾</title>
+<meta name="description" content="Counterfactual causation, confounding, directed acyclic graphs, stratified analysis and effect modification.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@600&display=swap">
+<link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script defer src="assets/vendor/katex/katex.min.js"></script>
+<script defer src="assets/vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="assets/js/site.js"></script>
+<script defer src="assets/js/tools.js"></script>
+</head>
+<body data-lang="both">
+<div class="layout">
+<nav data-nav></nav>
+<main>
+<article class="prose">
+<p class="module-kicker"><span class="bi"><span lang="en">Module 5</span><span lang="zh-Hant">第 5 單元</span></span></p>
+<h1><span class="bi"><span lang="en">Causation and confounding</span><span lang="zh-Hant">因果與干擾</span></span></h1>
+
+<p class="lede" lang="en">An association becomes interesting when we can argue it is causal. This module defines a causal effect, shows how confounding breaks the link between association and causation, and introduces the tools used to repair it.</p>
+<p class="lede" lang="zh-Hant">當我們能論證關聯具因果性時，關聯才真正有意義。本單元定義因果效應，說明干擾如何破壞關聯與因果之間的連結，並介紹修正的方法。</p>
+
+<section class="objectives">
+  <h2><span class="bi"><span lang="en">After this module you can</span><span lang="zh-Hant">學習目標</span></span></h2>
+  <ul lang="en">
+    <li>define a causal effect using potential outcomes;</li>
+    <li>identify confounders, mediators, and colliders in a directed acyclic graph;</li>
+    <li>use stratification to distinguish confounding from effect modification.</li>
+  </ul>
+  <ul lang="zh-Hant">
+    <li>以潛在結果定義因果效應；</li>
+    <li>在有向無環圖中辨識干擾因子、中介因子與碰撞因子；</li>
+    <li>以分層分析區分干擾與效應修飾。</li>
+  </ul>
+</section>
+
+<h2><span class="bi"><span lang="en">What is a causal effect?</span><span lang="zh-Hant">什麼是因果效應？</span></span></h2>
+<p lang="en">For each person imagine two <span class="term">potential outcomes</span>: \(Y^{a=1}\), the outcome if exposed, and \(Y^{a=0}\), the outcome if unexposed. The exposure has a causal effect for that person if the two differ. We only ever observe one of them, so individual effects are unknowable, but average effects in a population are not:</p>
+<p lang="zh-Hant">想像每個人都有兩個<span class="term">潛在結果</span>：曝露時的結果 \(Y^{a=1}\) 與未曝露時的結果 \(Y^{a=0}\)。兩者不同，即表示曝露對此人有因果效應。我們只能觀察到其中之一，因此個人效應無法得知，但族群的平均效應可以估計：</p>
+<div class="formula">
+$$\text{causal RR} = \frac{\Pr[Y^{a=1} = 1]}{\Pr[Y^{a=0} = 1]}$$
+</div>
+<p lang="en">The observed RR compares two different groups of people. It equals the causal RR only if the unexposed group shows what would have happened to the exposed group without exposure. This condition is called <span class="term">exchangeability</span>.</p>
+<p lang="zh-Hant">觀察到的 RR 比較的是兩群不同的人。只有當未曝露組能代表曝露組在未曝露時的情況，觀察 RR 才等於因果 RR，此條件稱為<span class="term">可交換性</span>。</p>
+
+<h2><span class="bi"><span lang="en">Confounding</span><span lang="zh-Hant">干擾</span></span></h2>
+<p lang="en"><span class="term">Confounding</span> is the lack of exchangeability caused by a common cause of exposure and outcome. The traditional checklist says a confounder is associated with the exposure, is a risk factor for the outcome, and is not on the causal pathway. The checklist is a useful start but can mislead; a causal diagram is more reliable.</p>
+<p lang="zh-Hant"><span class="term">干擾</span>是曝露與結果的共同原因所造成的不可交換性。傳統準則認為干擾因子須與曝露相關、為結果的危險因子，且不在因果路徑上。此準則可作為起點，但可能誤導；因果圖較為可靠。</p>
+
+<h3><span class="bi"><span lang="en">Directed acyclic graphs (DAGs)</span><span lang="zh-Hant">有向無環圖 (DAG)</span></span></h3>
+<p lang="en">Arrows represent direct causal effects. Three structures matter most:</p>
+<p lang="zh-Hant">箭頭代表直接因果效應。最重要的三種結構：</p>
+<figure>
+  <div class="figure-box">
+  <svg viewBox="0 0 690 210" role="img" aria-labelledby="dag-title" style="color:var(--ink);min-width:540px">
+    <title id="dag-title">Three causal structures: confounder, mediator, collider</title>
+    <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+    <g stroke="currentColor" stroke-width="1.6" fill="none" marker-end="url(#arr)">
+      <!-- confounder -->
+      <line x1="98" y1="62" x2="52" y2="118"/><line x1="122" y1="62" x2="168" y2="118"/><line x1="58" y1="135" x2="160" y2="135"/>
+      <!-- mediator -->
+      <line x1="288" y1="122" x2="333" y2="66"/><line x1="357" y1="66" x2="402" y2="122"/><line x1="296" y1="135" x2="398" y2="135"/>
+      <!-- collider -->
+      <line x1="528" y1="122" x2="573" y2="66"/><line x1="642" y1="122" x2="597" y2="66"/><line x1="536" y1="135" x2="638" y2="135"/>
+    </g>
+    <g class="fig-text" text-anchor="middle" font-weight="700">
+      <text x="110" y="55">C</text><text x="40" y="140">E</text><text x="180" y="140">D</text>
+      <text x="345" y="55">M</text><text x="280" y="140">E</text><text x="420" y="140">D</text>
+      <text x="585" y="55" fill="var(--crimson)">S</text><text x="520" y="140">E</text><text x="655" y="140">D</text>
+    </g>
+    <g class="fig-soft" text-anchor="middle">
+      <text lang="en" x="110" y="178">Confounder: adjust</text>
+      <text lang="en" x="350" y="178">Mediator: don't adjust</text>
+      <text lang="en" x="587" y="178">Collider: don't adjust</text>
+      <text lang="zh-Hant" x="110" y="198">干擾因子：應調整</text>
+      <text lang="zh-Hant" x="350" y="198">中介因子：不調整</text>
+      <text lang="zh-Hant" x="587" y="198">碰撞因子：不調整</text>
+    </g>
+  </svg>
+  </div>
+  <figcaption lang="en">Left: C causes both E and D, opening a backdoor path E ← C → D; adjusting for C closes it. Middle: M lies on the causal pathway; adjusting for it removes part of the effect you want to estimate. Right: E and D both cause S; conditioning on S (for example, by studying only hospitalized people) creates a spurious association.</figcaption>
+  <figcaption lang="zh-Hant">左：C 同時導致 E 與 D，開啟後門路徑 E ← C → D；調整 C 即可阻斷。中：M 位於因果路徑上；調整它會移除部分欲估計的效應。右：E 與 D 皆導致 S；以 S 為條件（例如只研究住院病人）會製造虛假關聯。</figcaption>
+</figure>
+
+<div class="callout key">
+  <p class="callout-title"><span class="bi"><span lang="en">The backdoor criterion, informally</span><span lang="zh-Hant">後門準則（簡述）</span></span></p>
+  <p lang="en">Adjust for a set of variables that blocks every path from exposure to outcome that starts with an arrow pointing <em>into</em> the exposure, without adjusting for descendants of the exposure. Draw the DAG before looking at the data.</p>
+  <p lang="zh-Hant">選擇一組變項加以調整，使其阻斷所有以箭頭<em>指向</em>曝露開始的路徑，且不調整曝露的下游變項。請在看資料之前先畫出 DAG。</p>
+</div>
+
+<h2><span class="bi"><span lang="en">Controlling confounding</span><span lang="zh-Hant">控制干擾</span></span></h2>
+<p lang="en">At the design stage: randomization, restriction (study only one level of the confounder), and matching. At the analysis stage: stratification with Mantel–Haenszel pooling, standardization, regression, and propensity score methods. Every analytic method only handles confounders that were measured, and measured well.</p>
+<p lang="zh-Hant">設計階段：隨機分派、限制（只研究干擾因子的某一層級）與配對。分析階段：分層並以 Mantel–Haenszel 法合併、標準化、迴歸與傾向分數方法。所有分析方法都只能處理已測量且測量良好的干擾因子。</p>
+<div class="formula">
+$$\text{OR}_{\text{MH}} = \frac{\sum_i a_i d_i / n_i}{\sum_i b_i c_i / n_i}$$
+<p lang="en">A weighted average of the stratum-specific odds ratios, where \(i\) indexes strata of the confounder.</p>
+<p lang="zh-Hant">各層勝算比的加權平均，\(i\) 代表干擾因子的各層。</p>
+</div>
+
+<h2><span class="bi"><span lang="en">Try it</span><span lang="zh-Hant">動手試試</span></span></h2>
+<p lang="en">The first example shows an exposure with no effect in either stratum that looks harmful in the crude table. The second shows an effect present in only one stratum.</p>
+<p lang="zh-Hant">第一個範例中，曝露在兩層皆無效應，但粗表卻顯示有害。第二個範例中，效應只出現在其中一層。</p>
+</article>
+<div data-tool="confound"></div>
+
+<article class="prose">
+<h2><span class="bi"><span lang="en">Effect modification</span><span lang="zh-Hant">效應修飾</span></span></h2>
+<p lang="en"><span class="term">Effect modification</span> means the effect of the exposure differs across levels of a third variable. Unlike confounding, it is not a bias to remove but a finding to report. It is also scale-dependent: an effect can be constant on the ratio scale while varying on the difference scale.</p>
+<p lang="zh-Hant"><span class="term">效應修飾</span>指曝露的效應在第三變項的不同層級間有所差異。與干擾不同，它不是需要移除的偏差，而是應報告的發現。效應修飾也依賴尺度：效應可能在比值尺度上恆定，在差值尺度上卻不同。</p>
+<p lang="en">For public health, interaction on the additive scale is usually more relevant because it identifies where an intervention prevents the most cases. With two binary exposures and the doubly unexposed group as reference, the relative excess risk due to interaction is:</p>
+<p lang="zh-Hant">在公共衛生上，加法尺度的交互作用通常較具意義，因為它能指出介入可預防最多病例之處。以兩個二元曝露、雙重未曝露組為參考組，交互作用相對超額風險為：</p>
+<div class="formula">
+$$\text{RERI} = \text{RR}_{11} - \text{RR}_{10} - \text{RR}_{01} + 1$$
+<p lang="en">RERI &gt; 0 indicates positive additive interaction: the joint effect exceeds the sum of the separate effects.</p>
+<p lang="zh-Hant">RERI &gt; 0 表示正向加法交互作用：共同效應大於個別效應之和。</p>
+</div>
+
+<h2><span class="bi"><span lang="en">Judging causality</span><span lang="zh-Hant">因果判斷</span></span></h2>
+<p lang="en">Bradford Hill's nine viewpoints (strength, consistency, specificity, temporality, biological gradient, plausibility, coherence, experiment, and analogy) are aids to judgement, not a checklist. Only temporality is required: the cause must precede the effect.</p>
+<p lang="zh-Hant">Bradford Hill 的九項觀點（強度、一致性、特異性、時序性、劑量效應、合理性、連貫性、實驗證據與類比）是輔助判斷的工具，而非檢核表。唯一必要的是時序性：原因必須先於結果。</p>
+
+<h2><span class="bi"><span lang="en">Check your understanding</span><span lang="zh-Hant">自我檢測</span></span></h2>
+<details class="check">
+  <summary><span class="bi"><span lang="en">Q1. You study maternal pre-pregnancy BMI and infant birth weight. Should you adjust for gestational diabetes?</span><span lang="zh-Hant">Q1. 研究孕前 BMI 與新生兒出生體重時，應調整妊娠糖尿病嗎？</span></span></summary>
+  <div class="answer">
+    <p lang="en">Not if you want the total effect. GDM is caused by high BMI and affects birth weight, so it is a mediator. Adjusting for it estimates something closer to a direct effect, and can introduce collider bias if GDM and birth weight share unmeasured causes.</p>
+    <p lang="zh-Hant">若欲估計總效應則不應調整。GDM 由高 BMI 導致並影響出生體重，屬於中介因子。調整後估計的較接近直接效應；若 GDM 與出生體重有未測量的共同原因，還可能引入碰撞偏差。</p>
+  </div>
+</details>
+<details class="check">
+  <summary><span class="bi"><span lang="en">Q2. RR for smoking alone = 2, for asbestos alone = 5, for both = 10. Is there interaction?</span><span lang="zh-Hant">Q2. 單獨吸菸 RR = 2，單獨石綿 RR = 5，兩者兼具 RR = 10。是否有交互作用？</span></span></summary>
+  <div class="answer">
+    <p lang="en">On the multiplicative scale, no: 2 × 5 = 10. On the additive scale, yes: RERI = 10 − 2 − 5 + 1 = 4. The same data show interaction on one scale and not the other, which is why you must state the scale.</p>
+    <p lang="zh-Hant">乘法尺度上沒有：2 × 5 = 10。加法尺度上有：RERI = 10 − 2 − 5 + 1 = 4。同一資料在一種尺度有交互作用、另一種沒有，因此必須說明所用尺度。</p>
+  </div>
+</details>
+</article>
+</main>
+</div>
+</body>
+</html>

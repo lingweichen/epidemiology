@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module template | 單元範本</title>
+<meta name="description" content="Copy this file to start a new module.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@600&display=swap">
+<link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script defer src="assets/vendor/katex/katex.min.js"></script>
+<script defer src="assets/vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="assets/js/site.js"></script>
+<script defer src="assets/js/tools.js"></script>
+</head>
+<body data-lang="both">
+<div class="layout">
+<nav data-nav></nav>
+<main>
+<!--
+  HOW TO USE THIS TEMPLATE
+  1. Copy this file and rename it, e.g. 07-survival.html
+  2. Add the module to SITE.modules in assets/js/site.js
+  3. Replace the content below. Patterns you can reuse:
+     - Paired paragraphs:  <p lang="en">…</p> then <p lang="zh-Hant">…</p>
+     - Paired short text (headings, labels):
+         <span class="bi"><span lang="en">…</span><span lang="zh-Hant">…</span></span>
+     - Math: inline \( … \), display $$ … $$ (LaTeX syntax)
+     - A tool: <div data-tool="assoc"></div>  (assoc, misclass, confound, screen)
+-->
+<article class="prose">
+<p class="module-kicker"><span class="bi"><span lang="en">Module 7</span><span lang="zh-Hant">第 7 單元</span></span></p>
+<h1><span class="bi"><span lang="en">Module title</span><span lang="zh-Hant">單元名稱</span></span></h1>
+
+<p class="lede" lang="en">One or two sentences on why this topic matters.</p>
+<p class="lede" lang="zh-Hant">用一兩句話說明此主題的重要性。</p>
+
+<section class="objectives">
+  <h2><span class="bi"><span lang="en">After this module you can</span><span lang="zh-Hant">學習目標</span></span></h2>
+  <ul lang="en"><li>first objective;</li><li>second objective.</li></ul>
+  <ul lang="zh-Hant"><li>第一項目標；</li><li>第二項目標。</li></ul>
+</section>
+
+<h2><span class="bi"><span lang="en">Section heading</span><span lang="zh-Hant">小節標題</span></span></h2>
+<p lang="en">Explanatory text. Mark a new <span class="term">key term</span> like this.</p>
+<p lang="zh-Hant">說明文字。新的<span class="term">關鍵名詞</span>可這樣標示。</p>
+
+<div class="formula">
+$$\text{Hazard ratio} = \frac{h_1(t)}{h_0(t)}$$
+<p lang="en">Explain the symbols here.</p>
+<p lang="zh-Hant">在此說明符號。</p>
+</div>
+
+<div class="callout">
+  <p class="callout-title"><span class="bi"><span lang="en">Common mistake</span><span lang="zh-Hant">常見錯誤</span></span></p>
+  <p lang="en">A caution or pitfall. Use class="callout key" for a key point instead.</p>
+  <p lang="zh-Hant">注意事項或常見陷阱。重點提示可改用 class="callout key"。</p>
+</div>
+
+<h2><span class="bi"><span lang="en">Check your understanding</span><span lang="zh-Hant">自我檢測</span></span></h2>
+<details class="check">
+  <summary><span class="bi"><span lang="en">Q1. Question text.</span><span lang="zh-Hant">Q1. 題目。</span></span></summary>
+  <div class="answer">
+    <p lang="en">Answer and explanation.</p>
+    <p lang="zh-Hant">答案與解說。</p>
+  </div>
+</details>
+</article>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interactive tools | 互動工具</title>
+<meta name="description" content="Calculators for 2x2 tables, misclassification, stratified analysis and screening tests.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@600&display=swap">
+<link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script defer src="assets/vendor/katex/katex.min.js"></script>
+<script defer src="assets/vendor/katex/contrib/auto-render.min.js"></script>
+<script defer src="assets/js/site.js"></script>
+<script defer src="assets/js/tools.js"></script>
+</head>
+<body data-lang="both">
+<div class="layout">
+<nav data-nav></nav>
+<main>
+<article class="prose">
+<h1><span class="bi"><span lang="en">Interactive tools</span><span lang="zh-Hant">互動工具</span></span></h1>
+<p class="lede" lang="en">All of the course calculators on one page, for problem sets and in-class exercises. Each one also appears inside the module where its concepts are taught.</p>
+<p class="lede" lang="zh-Hant">本頁彙整所有課程計算器，供作業與課堂練習使用。各工具也出現在講授相關觀念的單元中。</p>
+<h2><span class="bi"><span lang="en">Measures of association</span><span lang="zh-Hant">關聯性指標</span></span></h2>
+<p lang="en">Risk ratio, odds ratio, risk difference and attributable fractions from a 2×2 table. See <a href="02-association.html">module 2</a>.</p>
+<p lang="zh-Hant">由 2×2 表計算相對危險性、勝算比、風險差與可歸因分率。參見<a href="02-association.html">第 2 單元</a>。</p>
+</article>
+<div data-tool="assoc"></div>
+<article class="prose">
+<h2><span class="bi"><span lang="en">Exposure misclassification</span><span lang="zh-Hant">曝露錯誤分類</span></span></h2>
+<p lang="en">How imperfect measurement of exposure changes the observed odds ratio. See <a href="04-bias.html">module 4</a>.</p>
+<p lang="zh-Hant">曝露測量不完美時，觀察到的勝算比如何改變。參見<a href="04-bias.html">第 4 單元</a>。</p>
+</article>
+<div data-tool="misclass"></div>
+<article class="prose">
+<h2><span class="bi"><span lang="en">Stratified analysis</span><span lang="zh-Hant">分層分析</span></span></h2>
+<p lang="en">Crude, stratum-specific and Mantel–Haenszel odds ratios. See <a href="05-confounding.html">module 5</a>.</p>
+<p lang="zh-Hant">粗勝算比、各層勝算比與 Mantel–Haenszel 勝算比。參見<a href="05-confounding.html">第 5 單元</a>。</p>
+</article>
+<div data-tool="confound"></div>
+<article class="prose">
+<h2><span class="bi"><span lang="en">Screening tests</span><span lang="zh-Hant">篩檢檢驗</span></span></h2>
+<p lang="en">Predictive values across prevalence settings. See <a href="06-screening.html">module 6</a>.</p>
+<p lang="zh-Hant">不同盛行率下的預測值。參見<a href="06-screening.html">第 6 單元</a>。</p>
+</article>
+<div data-tool="screen"></div>
+</main>
+</div>
+</body>
+</html>
